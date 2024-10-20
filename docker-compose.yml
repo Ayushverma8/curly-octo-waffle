@@ -1,0 +1,13 @@
+version: '3.8'  # Specify the version of the Docker Compose file format
+
+services:
+  app:  # Name of the service
+    build:  # Define the build context
+      context: .  # Path to the directory containing the Dockerfile
+      dockerfile: Dockerfile  # Name of the Dockerfile
+    ports:
+      - "30000:30000"  # Map port 5000 on the host to port 3000 in the container
+    environment:
+      NODE_ENV: production  # Set the environment variable (optional)
+    volumes:
+      - .:/build  # Mount the current directory to /build in the container (optional for development)
